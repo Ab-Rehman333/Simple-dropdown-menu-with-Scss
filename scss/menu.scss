@@ -1,0 +1,157 @@
+$white: #ffffff;
+
+$aqua: #2ec4b6;
+$lt-aqua: #cbf3f0;
+
+
+$menu-margin: 5px;
+$nav-lh: 1.3em;
+$txt-pad: 0.5em;
+$nav-bar-height: $nav-lh+2 * $txt-pad;
+
+
+//-------------------
+// Reset browser CSS
+//-------------------
+* {
+    padding: 0px;
+    margin: 0px;
+    border: 0 none;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: $white;
+    font-family: 'Josefin Sans', Arial, sans-serif;
+    font-style: normal;
+    display: grid;
+    place-items: center;
+}
+
+//---------------------
+// Header Styling
+//---------------------
+
+/* header container */
+header {
+    position: relative;
+    /* need this to arrange items in header continer with position:absolute */
+    height: 41px;
+    width: 45%;
+    background: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* navbar container */
+    #mainmenu-navbar {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+
+        /* navbar items */
+        .main-menu.tab {
+            li {
+                list-style: none;
+                display: inline-block; //horizontal nav
+                position: relative; //need this for absolute positioning of submenu
+                min-width: 150px;
+                padding: 0.7rem;
+
+
+                font-size: 16px;
+                text-align: center;
+                text-transform: uppercase;
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+/* submenu container */
+.dropdown.container {
+    display: none;
+
+    //------------------
+    // Navbar Text
+    //------------------
+    .main-menu.tab a {
+        color: black;
+    }
+
+
+}
+
+.dropdown.container a {
+    color: white;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+//-------------------
+// Hover Styles
+//-------------------
+
+/* main menu items */
+.main-menu.tab>li:hover>a {
+    color: black;
+}
+
+/* submenu title */
+li.dropdown.tab:hover>a {
+    color: white;
+}
+
+/* submenu title background */
+.dropdown.tab:hover {
+    background: black;
+}
+
+/* submenu container */
+.dropdown.tab:hover .dropdown.container {
+    display: block;
+
+    position: absolute;
+    top: $nav-bar-height;
+    left: 0px;
+
+    background: $aqua;
+}
+
+/* submenu items */
+.dropdown.tab:hover li {
+    list-style: none;
+    line-height: 1em;
+    text-align: left;
+    padding: $txt-pad;
+    min-width: 150px;
+}
+
+/* submenu item highlight */
+.dropdown.container>li:hover {
+    background: black;
+}
+
+.dropdown.container>li {
+    color: white;
+}
+
+
+
+
+/**** end of header styling ****/
